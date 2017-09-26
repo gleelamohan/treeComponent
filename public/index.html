@@ -65,14 +65,14 @@
       <div class="slds-media__body">
         <h2>
           <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="[object Object]">
-            <span class="slds-text-heading_small">Data Products</span>
+            <span class="slds-text-heading_small" id="headerChange">Data Products</span>
           </a>
         </h2>
       </div>
     </header>
     
   </div>
-  <div class="slds-card__body slds-card__body_inner">Card Body (custom goes in here)</div>
+  <div class="slds-card__body slds-card__body_inner"><a href="#" id="linkAddress" target="_blank">click here to view the Dashboard </a> </div>
   <footer class="slds-card__footer">@Customer Intelligence</footer>
 </article>
   </main>
@@ -89,14 +89,17 @@ var json =
             "name": "Data Products",
             "children": [
                 {
-                    "name": "EWS Account Cloud"
+                    "name": "EWS Account Cloud",
+                    "uri":"https://org62.my.salesforce.com/analytics/wave/wave.apexp?tsid=02u300000014lDD#dashboard/0FK30000000TNwjGAG﻿"
                    
                 },
                 {
-                    "name": "EWS Community Cloud"
+                    "name": "EWS Community Cloud",
+                    "uri":"https://org62.my.salesforce.com/analytics/wave/wave.apexp?tsid=02u300000014lDD#dashboard/0FK0M00000006OsWAI﻿"
                 },
                 {
-                    "name": "EWS Account Path"
+                    "name": "EWS Account Path",
+                    "uri":"https://org62.my.salesforce.com/analytics/wave/wave.apexp?tsid=02u300000014lDD#dashboard/0FK0M000000GoNQWA0﻿"
                 }
             ]
         },
@@ -105,6 +108,7 @@ var json =
             "children": [
                 {
                     "name": "Engagement",
+                    "uri":""
                 }
             ]
         },
@@ -112,13 +116,16 @@ var json =
             "name": "Support",
             "children": [
                 {
-                    "name": "Red Account"
+                    "name": "Red Account",
+                    "uri":"https://org62.my.salesforce.com/analytics/wave/wave.apexp?tsid=02u300000014lDD#dashboard/0FK0M000000GqXXWA0﻿"
                 },
                 {
-                    "name": "CIC Dashboard"
+                    "name": "CIC Dashboard",
+                    "uri":""
                 },
                  {
-                    "name": "Executive Technical Support Dashboard"
+                    "name": "Executive Technical Support Dashboard",
+                    "uri":"https://org62.my.salesforce.com/analytics/wave/wave.apexp?tsid=02u300000014lDD#dashboard/0FK0M000000L0a9WAC"
                 }
             ]
         }
@@ -268,6 +275,12 @@ function nbEndNodes(n)
 
 function click(d)
 {
+    var generateHere = document.getElementById("headerChange");
+    generateHere.innerHTML = d.name;
+
+     var generateLink = document.getElementById("linkAddress");
+       generateLink.href = d.uri;
+
     if (d.children){
         d._children = d.children;
         d.children = null;
